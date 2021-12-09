@@ -40,19 +40,20 @@ body
     top: 0;
     left: 0;
     width: 100%;
+    
 }
 .nevigation ul li
 {
     position: relative;
-    width: 200%;
+    width: 100%;
     list-style: none;
-    
 }
-.nevigation ul li :hover
+.nevigation ul li :hover,
+.nevigation ul li.hovered
 {
-    background:var(--white);
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
+    background:var(--white);
 }
 .nevigation ul li:nth-child(1)
 {
@@ -68,7 +69,8 @@ body
     text-decoration: none;
     color: var(--white);
 }
-.nevigation ul li:hover a
+.nevigation ul li:hover a,
+.nevigation ul li.hovered a
 {
     color: var(--blue);
 }
@@ -94,4 +96,34 @@ body
     line-height: 60px;
     text-align: start;
     white-space: nowrap;
+}
+/*curve*/
+
+.nevigation ul li:hover a::before,
+.nevigation ul li.hovered a::before
+{
+    content:'';
+    position: absolute;
+    right:0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    top:-50px;
+    border-radius: 50%;
+    box-shadow: 25px 25px 0 1px var(--white);
+    pointer-events: none;
+}
+.nevigation ul li:hover a::after,
+.nevigation ul li.hovered a::after
+{
+    content:'';
+    position: absolute;
+    right:0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    bottom:-50px;
+    border-radius: 50%;
+    box-shadow: 25px -25px 0 1px var(--white);
+    pointer-events: none;
 }
